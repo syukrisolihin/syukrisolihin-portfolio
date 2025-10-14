@@ -1,0 +1,142 @@
+---
+// src/pages/projects/[...slug].astro
+import MainLayout from '../../layouts/MainLayout.astro';
+
+export async function getStaticPaths() {
+    const allProjects = [
+        {
+            slug: "indago",
+            title: "Indago",
+            tagline: "Mobile Apps Usage Analyzer: Promoting Healthy Phone Habits",
+            role: "Sole Full-Stack Developer (Final Year Project)",
+            images: [
+                "/images/projects/indago/indago-homepage.webp",
+                "/images/projects/indago/indago-appusagedetails.webp",
+                "/images/projects/indago/indago-focusbedtime.webp",
+                "/images/projects/indago/indago-setusage.webp",
+                "/images/projects/indago/indago-menu.webp",
+            ],
+            goal: "As my final year project for my Computer Science degree, the goal of Indago was to address mobile phone addiction by providing users with in-depth, actionable insights into their usage habits, going beyond the basic data offered by standard digital wellbeing apps.",
+            techStack: ["Flutter", "Dart", "Firebase", "Platform APIs"],
+            process: [
+                {
+                    title: "Prototyping & Code Translation",
+                    description: "The UI was rapidly prototyped using FlutterFlow. A key challenge emerged when migrating to pure Flutter, as the code couldn't be directly exported. This required a manual, line-by-line translation of the UI, systematically removing platform-specific dependencies and refactoring the code to conform to standard Flutter practices."
+                },
+                {
+                    title: "Systematic Build Error Resolution",
+                    description: "The translated code faced several persistent build errors. A Gradle version mismatch with the Java environment was resolved by upgrading Gradle. A subsequent symlink permission issue on Windows was definitively fixed by enabling Developer Mode, resulting in a stable and buildable application."
+                },
+                {
+                    title: "Strategic Pivot in Data Collection",
+                    description: "The initial data collection strategy using the 'app_usage' package failed due to persistent errors. I pivoted to the more robust 'usage_stats' package, which provided a stable path to successfully request user permissions and fetch granular app usage data."
+                },
+                {
+                    title: "Database Integration & Final Hurdle",
+                    description: "Firebase Firestore was chosen for data persistence. A final critical error, 'The database (default) does not exist,' was traced back to a missing setup step. The solution was to manually create the Cloud Firestore database in the Firebase console, fully enabling the app's core data storage and retrieval functionality."
+                }
+            ],
+            links: {
+                github: "https://github.com/syukrisolihin/indago_app.git"
+            }
+        },
+        // We will add the 'Deepsight' project object here later
+        {
+        slug: "deepsight",
+        title: "DeepSight",
+        role: "Lead Front-End Developer & UI/UX Designer",
+        tagline: "The Next-Generation Platform for AI Deepfake Detection",
+        images: [
+            "/images/projects/deepsight/homepage-1.webp",
+            "/images/projects/deepsight/homepage-2.webp",
+            "/images/projects/deepsight/homepage-3.webp",
+            "/images/projects/deepsight/contactus.webp",
+            "/images/projects/deepsight/aboutus.webp",
+            "/images/projects/deepsight/signin.webp",
+            "/images/projects/deepsight/signup.webp",
+        ], // We will add visuals here later
+        goal: "To combat the erosion of trust in digital media caused by deepfakes by providing an accessible and reliable platform for users to analyze and verify the authenticity of images, videos, and audio files.",
+        techStack: ["React.js", "Tailwind CSS", "Firebase Auth", "Firestore", "Cloud Storage"],
+        process: [
+            { title: "Asynchronous Upload Architecture", description: "I architected the front-end workflow to handle large file uploads asynchronously. Instead of a slow, direct connection, files are uploaded to Firebase Storage, creating a 'job ticket' in Firestore. This provides a non-blocking UI, crucial for a seamless user experience." },
+            { title: "Real-Time Dashboard Updates", description: "Using Firestore's onSnapshot listener, I implemented a real-time analysis history. The user's dashboard updates with results the moment the backend analysis is complete, without ever needing a page refresh." },
+            { title: "Dynamic Multi-Currency Pricing Page", description: "I developed a multi-tier pricing page that features a live currency converter, fetching real-time exchange rates from an external API to display prices in the user's local currency." },
+            { title: "Branded UI Component Design", description: "I designed and built several key UI components, including a highly stylized 'Meet the Team' section that blended a professional, dark aesthetic with the iconic flair of a sports player card to create a unique brand element." },
+            { title: "Database & Security Collaboration", description: "I collaborated on the Cloud Firestore schema design and implemented Firebase Storage security rules to ensure each user's uploaded files are completely private and secure." }
+        ],
+        links: {
+            note: "Repository is private due to proprietary code."
+        }
+    }
+
+    ];
+
+    return allProjects.map((project) => {
+        return {
+            params: { slug: project.slug },
+            props: { project: project },
+        };
+    });
+}
+
+const { project } = Astro.props;
+---
+
+<MainLayout title={`${project.title} | Project`}>
+    <article class="max-w-4xl mx-auto p-8">
+        <div class="text-center mb-16">
+            <h1 class="font-heading text-5xl md:text-7xl mb-4">{project.title}</h1>
+            <p class="text-xl text-text-secondary">{project.tagline}</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
+            {project.images && project.images.map((image, index) => (
+                <div class="col-span-1 rounded-lg overflow-hidden shadow-lg bg-white/5 flex items-center justify-center p-2">
+                    <img 
+                        src={image} 
+                        alt={`Image ${index + 1} for the ${project.title} project`}
+                        class="w-full h-full object-contain"
+                    />
+                </div>
+            ))}
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div>
+                <h3 class="font-bold uppercase tracking-wider text-text-secondary mb-2">Role</h3>
+                <p class="text-lg">{project.role}</p>
+            </div>
+            <div>
+                <h3 class="font-bold uppercase tracking-wider text-text-secondary mb-2">Technologies</h3>
+                <ul class="flex flex-wrap gap-2">
+                    {project.techStack.map(tech => (
+                        <li class="bg-accent-blue/20 text-accent-blue text-sm font-bold py-1 px-3 rounded-full">{tech}</li>
+                    ))}
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold uppercase tracking-wider text-text-secondary mb-2">Links</h3>
+                <a href={project.links.github} target="_blank" rel="noopener noreferrer" class="font-bold text-lg hover:text-accent-blue transition-colors duration-300">
+                    View on GitHub &rarr;
+                </a>
+            </div>
+        </div>
+
+        <div class="prose prose-invert prose-lg max-w-none">
+            <h2>The Goal</h2>
+            <p>{project.goal}</p>
+            
+            <h2>My Process & Solution</h2>
+            <p>The development of Indago was a journey of systematic problem-solving. I transformed a prototype into a stable, functional application by tackling a series of real-world challenges head-on.</p>
+            
+            <div class="space-y-6 mt-8">
+                {project.process.map(step => (
+                    <div class="bg-white/5 p-6 rounded-lg">
+                        <h3 class="font-heading text-2xl !mt-0 !mb-2">{step.title}</h3>
+                        <p class="!m-0">{step.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </article>
+</MainLayout>

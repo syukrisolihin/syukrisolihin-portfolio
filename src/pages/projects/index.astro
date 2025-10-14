@@ -1,0 +1,48 @@
+---
+// src/pages/projects/index.astro
+import MainLayout from '../../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Projects | Syukri Solihin">
+    <div class="max-w-4xl mx-auto p-8">
+        <h1 class="font-heading text-5xl md:text-6xl text-center mb-4">My Work</h1>
+        <p class="text-center text-text-secondary mb-12">
+            A selection of projects that showcase my skills and passion.
+        </p>
+
+        <!-- Project Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Indago Project Card -->
+            <a href="/projects/indago" class="bg-white/5 rounded-lg overflow-hidden group hover:bg-white/10 transition-all duration-300">
+                <!-- We will add an image here later -->
+                <img 
+                    src="/images/projects/indago/indago-homepage.webp" 
+                    alt="A preview of the Indago application dashboard" 
+                    class="w-full h-48 object-cover object-top"
+            >
+                <div class="p-6">
+                    <h3 class="font-heading text-2xl mb-2">Indago</h3>
+                    <p class="text-text-secondary mb-4">Mobile Apps Usage Analyzer: Promoting Healthy Phone Habits</p>
+                    <p class="text-xs font-bold text-accent-blue/50 uppercase tracking-wider mb-4">Final Year Project</p>
+                    <span class="font-bold text-accent-blue group-hover:underline">View Case Study &rarr;</span>
+                </div>
+            </a>
+
+            <a href="/projects/deepsight" class="bg-white/5 rounded-lg overflow-hidden group hover:bg-white/10 transition-all duration-300">
+                
+                <img 
+                    src="/images/projects/deepsight/homepage-1.webp" 
+                    alt="A preview of the Deepsight application dashboard" 
+                    class="w-full h-48 object-cover object-top"
+            >
+                <div class="p-6">
+                    <h3 class="font-heading text-2xl mb-2">DeepSight</h3>
+                    <p class="text-text-secondary mb-4">The Next-Generation Platform for AI Deepfake Detection</p>
+                    <span class="font-bold text-accent-blue group-hover:underline">View Case Study &rarr;</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</MainLayout>

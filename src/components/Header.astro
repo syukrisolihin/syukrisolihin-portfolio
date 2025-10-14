@@ -1,0 +1,31 @@
+---
+// src/components/Header.astro
+---
+<header class="w-full p-8 max-w-5xl mx-auto">
+    <nav class="flex justify-between items-center">
+        <!-- Logo on the left -->
+        <a href="/" class="font-heading text-2xl font-bold hover:text-accent-blue transition-colors duration-300">
+            S.
+        </a>
+
+        <!-- Navigation Links on the right -->
+        <div class="flex items-center space-x-8 font-body font-bold text-sm uppercase tracking-wider">
+            <a href="/" class="hover:text-accent-blue transition-colors duration-300 relative group">
+                Home
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-accent-amber transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+            </a>
+            <a href="/about" class="hover:text-accent-blue transition-colors duration-300 relative group">
+                About
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-accent-amber transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+            </a>
+            <a href="/projects" class="hover:text-accent-blue transition-colors duration-300 relative group">
+                Projects
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-accent-amber transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+            </a>
+            <a href="/contact" class="hover:text-accent-blue transition-colors duration-300 relative group">
+                Contact
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-accent-amber transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+            </a>
+        </div>
+    </nav>
+</header>

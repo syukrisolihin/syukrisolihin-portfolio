@@ -1,0 +1,39 @@
+---
+// src/pages/about.astro
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="About Me | Syukri Solihin">
+    <div class="max-w-3xl mx-auto p-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-start">
+            
+            <div class="col-span-1 flex justify-center">
+                <div class="w-48 h-48 rounded-full bg-white/10 flex items-center justify-center">
+                    <span class="text-text-secondary">Photo</span>
+                </div>
+            </div>
+
+            <div class="col-span-1 md:col-span-2">
+                <h1 class="font-heading text-5xl mb-4">About Me</h1>
+                <h2 class="font-body text-lg text-accent-blue font-normal tracking-widest uppercase mb-8">
+                    Creative Developer
+                </h2>
+
+                <div class="prose prose-invert prose-lg max-w-none">
+                    <p>
+                        I'm a detail-oriented developer with a foundation in Computer Science and a passion for building clean, user-friendly applications. My academic background in computer networking, backed by CCNP & CCNA certifications, has given me a deep understanding of digital systems, which I now apply to the world of web and mobile development.
+                    </p>
+                    <p>
+                        My proficiency with video editing tools like DaVinci Resolve has sharpened my eye for visual detail and user experience, which I translate into creating intuitive and engaging application interfaces.
+                    </p>
+                    <p>
+                        Ultimately, I bring a unique blend of skills: the analytical mind of a network-aware IT professional, the practical experience of a full-stack developer, and the creative eye of a visual communicator.
+                    </p>
+                    <p>
+                        I am actively seeking challenging part-time, remote, or freelance opportunities in Web Development, IT Support, or Network Management where I can contribute my skills. Let's connect and discuss how I can bring value to your project or team!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</MainLayout>

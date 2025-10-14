@@ -1,0 +1,22 @@
+---
+// src/components/Footer.astro
+const currentYear = new Date().getFullYear();
+---
+<footer class="w-full p-8 mt-16 max-w-5xl mx-auto border-t border-white/10">
+    <div class="flex justify-between items-center text-sm">
+        <p class="text-text-secondary">
+            &copy; {currentYear} Syukri Solihin. All rights reserved.
+        </p>
+        <div class="flex items-center space-x-6">
+            <a href="https://github.com/syukrisolihin" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-accent-blue transition-colors duration-300">
+                GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/syukrisolihin" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-accent-blue transition-colors duration-300">
+                LinkedIn
+            </a>
+            <a href="mailto:syukrisolihin18@gmail.com" class="font-bold hover:text-accent-blue transition-colors duration-300">
+                Email
+            </a>
+        </div>
+    </div>
+</footer>

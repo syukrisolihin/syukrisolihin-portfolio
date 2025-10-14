@@ -1,54 +1,27 @@
 ---
-// This frontmatter section is intentionally left empty for now.
+// src/pages/index.astro
+import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Syukri Solihin | Creative Developer</title>
-
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-	</head>
-
-	<body class="bg-bg-primary text-text-primary font-body flex items-center justify-center min-h-screen text-center leading-relaxed">
+<MainLayout title="Home | Syukri Solihin">
+	
+	<!-- This is the content that will be placed in the <slot /> of our MainLayout -->
+	<div class="max-w-2xl mx-auto text-center p-8">
 		
-		<main class="w-full p-8">
-      <div class="max-w-2xl mx-auto">
-          
-          <h1 class="font-heading text-5xl md:text-7xl">Syukri Solihin</h1>
-          
-          <h2 class="font-body text-base md:text-lg text-accent-blue font-normal tracking-widest uppercase mt-2 mb-8">
-              Creative Developer
-          </h2>
-          
-          <p class="text-base text-text-secondary max-w-xl mx-auto mb-10">
-              A detail-oriented Creative Developer with a foundation in Computer Science and a passion for building clean, user-friendly applications. I blend full-stack development experience, showcased in projects from mobile apps to deepfake detection platforms, with a sharp eye for visual detail to create interfaces that are both robust and engaging.
-          </p>
+		<h1 class="font-heading text-5xl md:text-7xl">Syukri Solihin</h1>
+		
+		<h2 class="font-body text-base md:text-lg text-accent-blue font-normal tracking-widest uppercase mt-2 mb-8">
+			Creative Developer
+		</h2>
+		
+		<p class="text-base text-text-secondary max-w-xl mx-auto mb-10">
+			A detail-oriented Creative Developer with a foundation in Computer Science and a passion for building clean, user-friendly applications. I blend full-stack development experience, showcased in projects from mobile apps to deepfake detection platforms, with a sharp eye for visual detail to create interfaces that are both robust and engaging.
+		</p>
 
-          <div class="flex items-center justify-center space-x-8">
-              <a href="https://github.com/syukrisolihin" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-accent-blue transition-colors duration-300 relative group">
-                  GitHub
-                  <span class="absolute -bottom-1.5 left-0 w-full h-0.5 bg-accent-amber transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
-              </a>
-              <a href="https://www.linkedin.com/in/syukrisolihin" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-accent-blue transition-colors duration-300 relative group">
-                  LinkedIn
-                  <span class="absolute -bottom-1.5 left-0 w-full h-0.5 bg-accent-amber transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
-              </a>
-              <a href="mailto:syukrisolihin18@gmail.com" class="font-bold hover:text-accent-blue transition-colors duration-300 relative group">
-                  Email
-                  <span class="absolute -bottom-1.5 left-0 w-full h-0.5 bg-accent-amber transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
-              </a>
-          </div>
+		<!-- This content is now in the footer, but we can keep a prominent CTA here -->
+		<a href="/contact" class="bg-accent-blue text-bg-primary font-bold py-3 px-8 rounded-full hover:bg-opacity-80 transition-all duration-300">
+			Get In Touch
+		</a>
+	</div>
 
-          <p class="mt-12 text-sm text-text-secondary">
-              Full portfolio launching soon.
-          </p>
-      </div>
-		</main>
-	</body>
-</html>
+</MainLayout>
